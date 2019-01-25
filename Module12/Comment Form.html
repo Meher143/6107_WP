@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body {
+border:2px  solid black;
+margin:45px 50px 75px 10px;
+background-color:#ccccff;
+}
+button{ 
+text-align:center;
+}
+
+</style>
+<script>
+function validate(){
+	var Name,Comments,SecretKey;
+	//qualification=[];
+	Name=document.getElementById("Name").value;
+	Comments=document.getElementById("Comments").value;
+	SecretKey=document.getElementById("SecretKey").value;
+	// if(document.getElementsByName("quall")[0].checked){
+	// 	qualification.push("b.tech");
+	// } 
+ //        if(document.getElementsByName("quall")[1].checked){
+	// 	qualification.push("bsc");
+	// } 
+ //      if(document.getElementsByName("quall")[2].checked){
+	// 	qualification.push("Mca")
+
+	// } 
+ //       if(document.getElementsByName("quall")[3].checked){
+	// 	qualification.push("M.tech");
+	// }
+   
+	if(Name==""){
+alert("please enter name");
+return;
+}
+	document.getElementById("result").innerHTML+="<div>"+Name+"<br>"+Comments+"<br></div>";
+}
+function validateKeyForName(evt){
+
+ evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 97 || charCode > 122)) {
+        return false;
+    }
+    return true;
+}
+
+</script>
+
+</head>
+<body>
+<form>
+<fieldset>
+<h1>Comment Form:</h1>
+<table>
+<tr> 
+<th>Name:</th> <td> <input type="text" onkeypress="return validateKeyForName(event)" name="Name" id="Name" value="" placeholder=""></td>
+</tr>
+<tr>
+<th>Comments:</th> <td> <input type="text" onkeypress="return validateKeyForName(event)" name="Comments" id="Comments" value="" placeholder=""></td>
+</tr>
+<th>SecretKey:</th> <td> <input type="password" onkeypress="return validateKeyForName(event)" name="SecretKey" id="SecretKey" value="" placeholder=""></td>
+
+<!-- <th rowspan="2">Qualification:</th>
+<div style="text-align;" > 
+<tr > <td colspan="2"> <input type="radio" name="quall">B.Tech<input type="radio" name="quall">B.SC</td>
+</tr>
+ <tr > <td></td><td> <input type="radio" name="quall">Mca<input type="radio" name="quall">M.tech</td>
+</tr> -->
+
+
+</div>
+</table>
+</br>
+<button type="button" onclick="validate()" >submit</button>
+<div id="result">
+</body>
+</html>
